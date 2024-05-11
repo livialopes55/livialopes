@@ -27,6 +27,17 @@ def mostra_classificacao(lista):
         print(f"{lista[i]}: {pts} \t SG: {lista[i+4]}")
         i = i + 5
 
+def adiciona_vitoria(nome_ganhador, delta_gols, teams):
+    i = 0 
+    while i < len(teams) and teams[i] != nome_ganhador:
+    i = i + 5
+    if i >=len(teams):
+        print(f"{nome_ganhador} não encontrado")
+    else: 
+        teams[i+1] = teams[i+1] + 1
+        teams[i+4] = teams[i+4] + delta_gols
+    
+
 def informa_resultado_partidas(matches, teams):
     i = 0
     while i < len(matches) and matches [i+1] != "":
@@ -37,13 +48,13 @@ def informa_resultado_partidas(matches, teams):
     gols2 = int(input(f"Gols {matches[i+2]}: "))
     if gols1 > gols2:
         adiciona_vitoria(matches[i], gols1 - gols2, teams)
-        adiciona_derrota(matches[i+2], gols1 - gols2, teams)
+        #adiciona_derrota(matches[i+2], gols1 - gols2, teams)
     elif gols1 > gols2
         adiciona_vitoria(matches[i+2], gols2 - gols1, teams)
-        adiciona_derrota(matches[i], gols2 - gols1, teams)
+        #adiciona_derrota(matches[i], gols2 - gols1, teams)
     else: 
-        adiciona_empate(matches[i], matches[i+2], teams)
-
+        #adiciona_empate(matches[i], matches[i+2], teams)
+        
 
 times = []
 inicia_times(times)
